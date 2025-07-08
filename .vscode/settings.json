@@ -1,0 +1,7 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.fixAll.stylelint": "always"
+  },
+  "stylelint.validate": ["css", "scss"]
+}

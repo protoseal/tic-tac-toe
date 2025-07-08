@@ -1,0 +1,7 @@
+/* In version tailwindcss 4+, you need to import exactly in the .css file */
+@import "tailwindcss";
+
+body {
+  background-color: #232323;
+  color: white;
+}
