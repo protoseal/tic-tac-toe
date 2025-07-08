@@ -1,8 +1,8 @@
 import type { PlayerSymbol } from "./global"
 
 export interface IPlayer {
-  name: string
-  symbol: PlayerSymbol
+  readonly name: string
+  readonly symbol: PlayerSymbol
 }
 
 export interface PlayerProps {
