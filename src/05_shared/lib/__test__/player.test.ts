@@ -1,6 +1,6 @@
 import { PlayerSymbol } from "05_shared/models/global"
 
-import { Player } from "../models/player"
+import { Player } from "../Player"
 
 const playerConfig = { name: "user", symbol: PlayerSymbol.X }
 
