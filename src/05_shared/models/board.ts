@@ -1,6 +1,6 @@
-import type { ICell } from "./cell/cell"
+import type { ICell } from "./cell"
 import type { Coordinates, PlayerSymbol } from "./global"
-import type { IPlayer } from "./player/player"
+import type { IPlayer } from "./player"
 
 export interface IBoard {
   readonly cells: ICell[]

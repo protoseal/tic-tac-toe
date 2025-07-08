@@ -1,4 +1,4 @@
-import type { PlayerSymbol } from "../global"
+import type { PlayerSymbol } from "./global"
 import type { IPlayer } from "./player"
 
 export interface IPlayerFactory {
