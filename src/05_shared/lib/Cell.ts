@@ -17,7 +17,7 @@ export class Cell implements ICell {
     return this._symbol
   }
 
-  set symbol(value: CellSymbol) {
+  public setSymbol(value: CellSymbol): void {
     this._symbol = value
   }
 }

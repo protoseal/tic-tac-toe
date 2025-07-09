@@ -8,5 +8,6 @@ export enum CellSymbol {
 
 export interface ICell {
   readonly coordinates: Coordinates
-  symbol: CellSymbol
+  readonly symbol: CellSymbol
+  setSymbol(value: CellSymbol): void
 }
