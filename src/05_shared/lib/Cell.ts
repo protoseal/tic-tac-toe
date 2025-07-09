@@ -1,9 +1,9 @@
-import { CellSymbol, type ICell } from "05_shared/models/cell"
-import type { Coordinates } from "05_shared/models/global"
+import { type ICell } from "05_shared/models/cell"
+import type { Coordinates, PlayerSymbol } from "05_shared/models/global"
 
 export class Cell implements ICell {
   private readonly _coordinates: Coordinates
-  private _symbol: CellSymbol = CellSymbol.EMPTY
+  private _symbol: PlayerSymbol | null = null
 
   constructor(coordinates: Coordinates) {
     this._coordinates = coordinates
@@ -17,7 +17,7 @@ export class Cell implements ICell {
     return this._symbol
   }
 
-  public setSymbol(value: CellSymbol): void {
+  public setSymbol(value: PlayerSymbol | null): void {
     this._symbol = value
   }
 }

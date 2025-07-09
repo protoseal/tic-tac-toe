@@ -1,5 +1,4 @@
-import { CellSymbol } from "05_shared/models/cell"
-import { type Coordinates } from "05_shared/models/global"
+import { type Coordinates, PlayerSymbol } from "05_shared/models/global"
 
 import { Cell } from "../Cell"
 
@@ -10,12 +9,12 @@ describe("Cell", () => {
     const cell = new Cell(cellCoordinates)
 
     expect(cell.coordinates).toEqual(cellCoordinates)
-    expect(cell.symbol).toBe(CellSymbol.EMPTY)
+    expect(cell.symbol).toBe(null)
   })
 
   it("should set cell symbol", () => {
     const cell = new Cell(cellCoordinates)
-    cell.setSymbol(CellSymbol.O)
-    expect(cell.symbol).toBe(CellSymbol.O)
+    cell.setSymbol(PlayerSymbol.O)
+    expect(cell.symbol).toBe(PlayerSymbol.O)
   })
 })

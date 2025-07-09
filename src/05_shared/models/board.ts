@@ -1,14 +1,17 @@
 import type { ICell } from "./cell"
+import type { ICellFactory } from "./cellFactory"
 import type { Coordinates, PlayerSymbol } from "./global"
-import type { IPlayer } from "./player"
+
+export type CellMatrix = ICell[][]
 
 export interface IBoard {
-  readonly cells: ICell[]
-  checkWinner(): IPlayer | null
-  setPlayerSymbolInCell(props: SetPlayerSymbolInCellProps): void
+  readonly cells: CellMatrix
+  checkWinner(): PlayerSymbol | null
+  setPlayerSymbolInCell(coordinates: Coordinates, symbol: PlayerSymbol): void
+  getCell(coordinates: Coordinates): ICell | null
 }
 
-interface SetPlayerSymbolInCellProps {
-  playerSymbol: PlayerSymbol
-  cellCoordinates: Coordinates
+export interface BoardProps {
+  size: number
+  cellFactory: ICellFactory
 }
