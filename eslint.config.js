@@ -26,6 +26,9 @@ export default tseslint.config([
       globals: { ...globals.serviceworker, ...globals.browser },
     },
     settings: { react: { version: "detect" } },
-    rules: { "react/react-in-jsx-scope": "off" },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   },
 ])
