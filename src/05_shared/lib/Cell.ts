@@ -3,7 +3,7 @@ import type { Coordinates } from "05_shared/models/global"
 
 export class Cell implements ICell {
   private readonly _coordinates: Coordinates
-  private _symbol: CellSymbol = CellSymbol.EMPTY
+  private readonly _symbol: CellSymbol = CellSymbol.EMPTY
 
   constructor(coordinates: Coordinates) {
     this._coordinates = coordinates
