@@ -1,10 +1,34 @@
-import type { Coordinates } from "./global"
+import type { IBoardFactory } from "./boardFactory"
+import type { ICellFactory } from "./cellFactory"
+import type { Coordinates, PlayerSymbol } from "./global"
+import type { ILeaderboardRepository } from "./leaderboardRepository"
+import type { IPlayer } from "./player"
+import type { IPlayerFactory } from "./playerFactory"
 
 export interface IGame {
+  readonly status: GameStatus
+  readonly isDraw: boolean
+  readonly activePlayer: IPlayer
+  readonly winner: IPlayer | null
+  start(): void
+  reset(): void
   makeMove(cellCoordinates: Coordinates): void
 }
 
+export interface GameProps {
+  boardSize: number
+  players: PlayersConfig
+
+  leaderboardRepository: ILeaderboardRepository
+  playerFactory: IPlayerFactory
+  boardFactory: IBoardFactory
+  cellFactory: ICellFactory
+}
+
+export type PlayerMap = Map<string, IPlayer>
+export type PlayersConfig = Record<string, PlayerSymbol>
+
 export enum GameStatus {
-  play = "play",
+  start = "start",
   stop = "stop",
 }

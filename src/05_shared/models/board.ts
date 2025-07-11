@@ -6,9 +6,11 @@ export type CellMatrix = ICell[][]
 
 export interface IBoard {
   readonly cells: CellMatrix
+  readonly isAllCellsSelected: boolean
   checkWinner(): PlayerSymbol | null
   setPlayerSymbolInCell(coordinates: Coordinates, symbol: PlayerSymbol): void
   getCell(coordinates: Coordinates): ICell | null
+  reset(): void
 }
 
 export interface BoardProps {

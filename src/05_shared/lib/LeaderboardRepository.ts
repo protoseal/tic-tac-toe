@@ -59,6 +59,11 @@ export class LeaderboardRepository implements ILeaderboardRepository {
     this._saveLeaderboard(leaderboard)
   }
 
+  public getPlayerByName(name: string): LeaderboardItem | undefined {
+    const leaderboard = this._getLeaderboardFromStore()
+    return leaderboard.get(name)
+  }
+
   public clear(): void {
     localStorage.removeItem(this._LEADERBOARD_STORE_KEY)
   }

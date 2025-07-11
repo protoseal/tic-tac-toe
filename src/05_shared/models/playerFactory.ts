@@ -1,6 +1,5 @@
-import type { PlayerSymbol } from "./global"
+import type { IPlayer, PlayerProps } from "./player"
 
-export interface PlayerFactoryCreateProps {
-  name: string
-  playerSymbol: PlayerSymbol
+export interface IPlayerFactory {
+  create(props: PlayerProps): IPlayer
 }

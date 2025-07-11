@@ -1,4 +1,4 @@
-import type { BoardProps } from "05_shared/models/board"
+import type { BoardProps, IBoard } from "05_shared/models/board"
 import { type Coordinates, PlayerSymbol } from "05_shared/models/global"
 
 import { Board } from "../Board"
@@ -8,19 +8,22 @@ const boardProps: BoardProps = { size: 3, cellFactory: new CellFactory() }
 const cellCoordinates: Coordinates = { row: 0, col: 0 }
 
 describe("Board", () => {
+  let board: IBoard
+
+  beforeEach(() => {
+    board = new Board(boardProps)
+  })
+
   it("should create board", () => {
-    const board = new Board(boardProps)
     expect(board.cells.length).not.toBe(0)
   })
 
   it("should get cell by coordinates", () => {
-    const board = new Board(boardProps)
     const cell = board.getCell(cellCoordinates)
     expect(cell?.coordinates).toEqual(cellCoordinates)
   })
 
   it("should set symbol in cell", () => {
-    const board = new Board(boardProps)
     board.setPlayerSymbolInCell(cellCoordinates, PlayerSymbol.X)
     const cell = board.getCell(cellCoordinates)
 
@@ -29,8 +32,6 @@ describe("Board", () => {
   })
 
   it("should check row winner", () => {
-    const board = new Board(boardProps)
-
     for (let i = 0; i < boardProps.size; i++) {
       board.setPlayerSymbolInCell({ row: i, col: 0 }, PlayerSymbol.X)
     }
@@ -40,8 +41,6 @@ describe("Board", () => {
   })
 
   it("should check col winner", () => {
-    const board = new Board(boardProps)
-
     for (let i = 0; i < boardProps.size; i++) {
       board.setPlayerSymbolInCell({ row: 0, col: i }, PlayerSymbol.X)
     }
@@ -51,8 +50,6 @@ describe("Board", () => {
   })
 
   it("should check main diagonal winner", () => {
-    const board = new Board(boardProps)
-
     for (let i = 0; i < boardProps.size; i++) {
       board.setPlayerSymbolInCell({ row: i, col: i }, PlayerSymbol.X)
     }
@@ -62,7 +59,6 @@ describe("Board", () => {
   })
 
   it("should check anti diagonal winner", () => {
-    const board = new Board(boardProps)
     const size = boardProps.size
 
     for (let i = 0; i < size; i++) {
@@ -71,5 +67,31 @@ describe("Board", () => {
 
     const winner = board.checkWinner()
     expect(winner).toBe(PlayerSymbol.X)
+  })
+
+  it("should select for selected cell", () => {
+    const cell = board.getCell(cellCoordinates)
+
+    board.setPlayerSymbolInCell(cellCoordinates, PlayerSymbol.X)
+    expect(cell?.symbol).toBe(PlayerSymbol.X)
+
+    board.setPlayerSymbolInCell(cellCoordinates, PlayerSymbol.O)
+    expect(cell?.symbol).toBe(PlayerSymbol.X)
+  })
+
+  it("should reset board", () => {
+    const coordinatesCell1 = { row: 0, col: 0 }
+    const coordinatesCell2 = { row: 2, col: 2 }
+
+    board.getCell(coordinatesCell1)
+    board.getCell(coordinatesCell2)
+
+    board.setPlayerSymbolInCell(coordinatesCell1, PlayerSymbol.X)
+    board.setPlayerSymbolInCell(coordinatesCell2, PlayerSymbol.O)
+
+    board.reset()
+
+    expect(board.getCell(coordinatesCell1)?.symbol).toBeNull()
+    expect(board.getCell(coordinatesCell2)?.symbol).toBeNull()
   })
 })

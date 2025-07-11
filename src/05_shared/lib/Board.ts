@@ -19,6 +19,15 @@ export class Board implements IBoard {
     return this._cells
   }
 
+  get isAllCellsSelected(): boolean {
+    const array = this._toFlatCells()
+    return array.every((cell) => cell.symbol !== null)
+  }
+
+  private _toFlatCells(): ICell[] {
+    return this._cells.flat()
+  }
+
   private _createCellMatrix(): CellMatrix {
     const matrix: CellMatrix = []
 
@@ -42,7 +51,7 @@ export class Board implements IBoard {
     symbol: PlayerSymbol,
   ): void {
     const cell = this.getCell(coordinates)
-    if (!cell) return
+    if (!cell || cell.symbol) return
 
     cell.setSymbol(symbol)
   }
@@ -88,5 +97,9 @@ export class Board implements IBoard {
 
     const isWin = line.every((cell) => cell.symbol === firstSymbol)
     return isWin ? firstSymbol : null
+  }
+
+  public reset(): void {
+    this._cells = this._createCellMatrix()
   }
 }
