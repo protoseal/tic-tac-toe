@@ -1,5 +1,5 @@
-import { type ICell } from "05_shared/models/cell"
-import type { Coordinates, PlayerSymbol } from "05_shared/models/global"
+import { type ICell } from "@05_shared/models/cell"
+import type { Coordinates, PlayerSymbol } from "@05_shared/models/global"
 
 export class Cell implements ICell {
   private readonly _coordinates: Coordinates

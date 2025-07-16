@@ -1,8 +1,8 @@
 import type {
   ILeaderboardRepository,
   Leaderboard,
-} from "05_shared/models/leaderboardRepository"
-import { localStorageMock } from "05_shared/utils/localStorageMock"
+} from "@05_shared/models/leaderboardRepository"
+import { localStorageMock } from "@05_shared/utils/localStorageMock"
 
 import { LeaderboardRepository } from "../LeaderboardRepository"
 

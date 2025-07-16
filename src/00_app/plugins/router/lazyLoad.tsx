@@ -1,4 +1,4 @@
-import { UILoader } from "05_shared/ui/UILoader"
+import { UILoader } from "@05_shared/ui/UILoader"
 import { Suspense, lazy } from "react"
 
 export const lazyLoad = (path: string) => {

@@ -3,6 +3,19 @@
 @import "./variables.css";
 
 body {
-  background-color: #232323;
+  background-color: var(--color-background);
   color: white;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.is-montserrat {
+  font-family: Montserrat, sans-serif;
+}
+
+.highlight {
+  color: var(--color-accent);
+  font-weight: bold;
+  text-decoration: underline;
 }

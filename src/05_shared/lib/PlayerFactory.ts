@@ -1,5 +1,5 @@
-import type { IPlayer, PlayerProps } from "05_shared/models/player"
-import type { IPlayerFactory } from "05_shared/models/playerFactory"
+import type { IPlayer, PlayerProps } from "@05_shared/models/player"
+import type { IPlayerFactory } from "@05_shared/models/playerFactory"
 
 import { Player } from "./Player"
 

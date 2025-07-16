@@ -1,6 +1,6 @@
-import { type GameProps, GameStatus } from "05_shared/models/game"
-import { PlayerSymbol } from "05_shared/models/global"
-import { localStorageMock } from "05_shared/utils/localStorageMock"
+import { type GameProps, GameStatus } from "@05_shared/models/game"
+import { PlayerSymbol } from "@05_shared/models/global"
+import { localStorageMock } from "@05_shared/utils/localStorageMock"
 
 import { BoardFactory } from "../BoardFactory"
 import { CellFactory } from "../CellFactory"

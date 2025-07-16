@@ -1,4 +1,4 @@
-import type { Coordinates } from "05_shared/models/global"
+import type { Coordinates } from "@05_shared/models/global"
 
 import { CellFactory } from "../CellFactory"
 

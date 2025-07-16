@@ -1,5 +1,5 @@
-import type { BoardProps, IBoard } from "05_shared/models/board"
-import type { IBoardFactory } from "05_shared/models/boardFactory"
+import type { BoardProps, IBoard } from "@05_shared/models/board"
+import type { IBoardFactory } from "@05_shared/models/boardFactory"
 
 import { Board } from "./Board"
 

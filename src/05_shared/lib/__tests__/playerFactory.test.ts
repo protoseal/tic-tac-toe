@@ -1,4 +1,4 @@
-import { PlayerSymbol } from "05_shared/models/global"
+import { PlayerSymbol } from "@05_shared/models/global"
 
 import { PlayerFactory } from "../PlayerFactory"
 

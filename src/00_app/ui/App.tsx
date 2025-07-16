@@ -1,4 +1,4 @@
-import { router } from "00_app/plugins/router"
+import { router } from "@00_app/plugins/router"
 import type { FC } from "react"
 import { RouterProvider } from "react-router"
 

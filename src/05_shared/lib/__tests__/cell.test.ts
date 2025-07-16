@@ -1,4 +1,4 @@
-import { type Coordinates, PlayerSymbol } from "05_shared/models/global"
+import { type Coordinates, PlayerSymbol } from "@05_shared/models/global"
 
 import { Cell } from "../Cell"
 

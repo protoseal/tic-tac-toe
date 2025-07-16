@@ -1,5 +1,5 @@
-import type { BoardProps, IBoard } from "05_shared/models/board"
-import { type Coordinates, PlayerSymbol } from "05_shared/models/global"
+import type { BoardProps, IBoard } from "@05_shared/models/board"
+import { type Coordinates, PlayerSymbol } from "@05_shared/models/global"
 
 import { Board } from "../Board"
 import { CellFactory } from "../CellFactory"

@@ -1,7 +1,7 @@
-import type { BoardProps, CellMatrix, IBoard } from "05_shared/models/board"
-import type { ICell } from "05_shared/models/cell"
-import type { ICellFactory } from "05_shared/models/cellFactory"
-import type { Coordinates, PlayerSymbol } from "05_shared/models/global"
+import type { BoardProps, CellMatrix, IBoard } from "@05_shared/models/board"
+import type { ICell } from "@05_shared/models/cell"
+import type { ICellFactory } from "@05_shared/models/cellFactory"
+import type { Coordinates, PlayerSymbol } from "@05_shared/models/global"
 
 export class Board implements IBoard {
   private _size: number

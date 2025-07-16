@@ -1,15 +1,15 @@
-import type { IBoard } from "05_shared/models/board"
+import type { IBoard } from "@05_shared/models/board"
 import {
   type GameProps,
   GameStatus,
   type IGame,
   type PlayerMap,
   type PlayersConfig,
-} from "05_shared/models/game"
-import { type Coordinates, PlayerSymbol } from "05_shared/models/global"
-import type { ILeaderboardRepository } from "05_shared/models/leaderboardRepository"
-import type { IPlayer } from "05_shared/models/player"
-import type { IPlayerFactory } from "05_shared/models/playerFactory"
+} from "@05_shared/models/game"
+import { type Coordinates, PlayerSymbol } from "@05_shared/models/global"
+import type { ILeaderboardRepository } from "@05_shared/models/leaderboardRepository"
+import type { IPlayer } from "@05_shared/models/player"
+import type { IPlayerFactory } from "@05_shared/models/playerFactory"
 
 export class Game implements IGame {
   private _gameStatus: GameStatus = GameStatus.stop

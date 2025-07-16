@@ -2,7 +2,7 @@ import type {
   ILeaderboardRepository,
   Leaderboard,
   LeaderboardItem,
-} from "05_shared/models/leaderboardRepository"
+} from "@05_shared/models/leaderboardRepository"
 
 export class LeaderboardRepository implements ILeaderboardRepository {
   private _LEADERBOARD_STORE_KEY: string = "leaderboard"
