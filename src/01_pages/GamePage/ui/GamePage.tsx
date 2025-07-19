@@ -8,10 +8,12 @@ import { type Coordinates, PlayerSymbol } from "@05_shared/models/global"
 import { UILayout } from "@05_shared/ui/UILayout"
 import { type FC, useEffect, useState } from "react"
 
+const BOARD_SIZE = 3
+
 export const GamePage: FC = () => {
   const game = new Game({
     boardFactory: new BoardFactory(),
-    boardSize: 3,
+    boardSize: BOARD_SIZE,
     playerFactory: new PlayerFactory(),
     players: { bob: PlayerSymbol.X, alice: PlayerSymbol.O },
     cellFactory: new CellFactory(),
@@ -31,7 +33,11 @@ export const GamePage: FC = () => {
 
   return (
     <UILayout as="main">
-      <GameBoard cells={cells} handleMakeMove={handleMakeMove} />
+      <GameBoard
+        size={BOARD_SIZE}
+        cells={cells}
+        handleMakeMove={handleMakeMove}
+      />
     </UILayout>
   )
 }

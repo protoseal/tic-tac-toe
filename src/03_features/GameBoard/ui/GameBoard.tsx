@@ -6,28 +6,27 @@ import { type FC, useEffect, useRef } from "react"
 import { BoardRenderer } from "../lib/BoardRenderer"
 
 interface Props {
+  size: number
   cells: CellMatrix
   handleMakeMove(coordinates: Coordinates): void
 }
 
-export const GameBoard: FC<Props> = ({ handleMakeMove, cells }) => {
+export const GameBoard: FC<Props> = ({ cells, size, handleMakeMove }) => {
   const renderer = useRef<IBoardRenderer | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const isInitialized = useRef<boolean>(false)
 
   useEffect(() => {
-    if (!canvasRef.current) return
+    if (!canvasRef.current || isInitialized.current) return
 
-    renderer.current = new BoardRenderer({
+    const boardRenderer = new BoardRenderer({
       canvas: canvasRef.current,
-      size: 3,
+      size,
       clickHandler: handleMakeMove,
     })
 
-    if (!isInitialized.current) {
-      renderer.current.setupEventListeners()
-      isInitialized.current = true
-    }
+    renderer.current = boardRenderer
+    isInitialized.current = true
 
     return () => {
       renderer.current?.destroy()
