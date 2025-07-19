@@ -51,6 +51,10 @@ export class Game implements IGame {
     return this._gameStatus
   }
 
+  get board(): IBoard {
+    return this._board
+  }
+
   private _createPlayers(
     players: PlayersConfig,
     playerFactory: IPlayerFactory,

@@ -1,3 +1,4 @@
+import type { IBoard } from "./board"
 import type { IBoardFactory } from "./boardFactory"
 import type { ICellFactory } from "./cellFactory"
 import type { Coordinates, PlayerSymbol } from "./global"
@@ -10,6 +11,7 @@ export interface IGame {
   readonly isDraw: boolean
   readonly activePlayer: IPlayer
   readonly winner: IPlayer | null
+  readonly board: IBoard
   start(): void
   reset(): void
   makeMove(cellCoordinates: Coordinates): void
