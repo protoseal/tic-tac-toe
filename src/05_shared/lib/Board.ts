@@ -16,7 +16,7 @@ export class Board implements IBoard {
   }
 
   get cells(): CellMatrix {
-    return [...this._cells]
+    return this._cells
   }
 
   get isAllCellsSelected(): boolean {

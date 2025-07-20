@@ -31,7 +31,7 @@ export const GameBoard: FC<Props> = ({ cells, size, handleMakeMove }) => {
     return () => {
       renderer.current?.destroy()
     }
-  }, [])
+  }, [size, handleMakeMove])
 
   useEffect(() => {
     renderer.current?.render(cells)

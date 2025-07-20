@@ -14,14 +14,14 @@ const symbolIconMap = {
 }
 
 export const CurrentPlayer: FC<Props> = ({ currentPlayer }) => {
-  const IconComponent = symbolIconMap[currentPlayer?.symbol]
+  const IconComponent = symbolIconMap[currentPlayer.symbol]
 
   return (
     <div className="flex gap-2">
       <span>Current player:</span>
 
       <div className="flex items-center justify-center gap-2">
-        <span className="highlight">{currentPlayer?.name}</span>
+        <span className="highlight">{currentPlayer.name}</span>
         <IconComponent className="h-4 w-4" />
       </div>
     </div>
