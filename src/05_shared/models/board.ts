@@ -5,6 +5,7 @@ import type { Coordinates, PlayerSymbol } from "./global"
 export type CellMatrix = ICell[][]
 
 export interface IBoard {
+  readonly size: number
   readonly cells: CellMatrix
   readonly isAllCellsSelected: boolean
   checkWinner(): PlayerSymbol | null

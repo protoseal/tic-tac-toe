@@ -1,31 +1,19 @@
 import { CurrentPlayer } from "@03_features/CurrentPlayer"
-import { GameBoard } from "@03_features/GameBoard/ui/GameBoard"
-import { BoardFactory } from "@05_shared/lib/BoardFactory"
-import { CellFactory } from "@05_shared/lib/CellFactory"
-import { Game as GameService } from "@05_shared/lib/Game"
-import { LeaderboardRepository } from "@05_shared/lib/LeaderboardRepository"
-import { PlayerFactory } from "@05_shared/lib/PlayerFactory"
-import { type Coordinates, PlayerSymbol } from "@05_shared/models/global"
+import { GameBoard } from "@03_features/GameBoard"
+import type { IGame } from "@05_shared/models/game"
+import { type Coordinates } from "@05_shared/models/global"
 import type { IPlayer } from "@05_shared/models/player"
 import { type FC, useEffect, useState } from "react"
 
-const BOARD_SIZE = 3
+interface Props {
+  gameService: IGame
+}
 
-export const Game: FC = () => {
-  const [game] = useState(
-    () =>
-      new GameService({
-        boardFactory: new BoardFactory(),
-        boardSize: BOARD_SIZE,
-        playerFactory: new PlayerFactory(),
-        players: { bob: PlayerSymbol.X, alice: PlayerSymbol.O },
-        cellFactory: new CellFactory(),
-        leaderboardRepository: new LeaderboardRepository(),
-      }),
+export const Game: FC<Props> = ({ gameService }) => {
+  const [cells, setCells] = useState(gameService.board.cells)
+  const [activePlayer, setActivePlayer] = useState<IPlayer>(
+    gameService.activePlayer,
   )
-
-  const [cells, setCells] = useState(game.board.cells)
-  const [activePlayer, setActivePlayer] = useState<IPlayer>(game.activePlayer)
   const [winner, setWinner] = useState<IPlayer | null>(null)
   const [isDraw, setIsDraw] = useState<boolean>(false)
 
@@ -33,23 +21,23 @@ export const Game: FC = () => {
   void isDraw
 
   const handleMakeMove = (coordinates: Coordinates) => {
-    game.makeMove(coordinates)
+    gameService.makeMove(coordinates)
 
-    setCells([...game.board.cells])
-    setActivePlayer(game.activePlayer)
-    setWinner(game.winner)
-    setIsDraw(game.isDraw)
+    setCells([...gameService.board.cells])
+    setActivePlayer(gameService.activePlayer)
+    setWinner(gameService.winner)
+    setIsDraw(gameService.isDraw)
   }
 
   useEffect(() => {
-    game.start()
-  }, [game])
+    gameService.start()
+  }, [gameService])
 
   return (
     <div className="flex flex-col gap-3">
       <CurrentPlayer currentPlayer={activePlayer} />
       <GameBoard
-        size={BOARD_SIZE}
+        size={gameService.board.size}
         cells={cells}
         handleMakeMove={handleMakeMove}
       />

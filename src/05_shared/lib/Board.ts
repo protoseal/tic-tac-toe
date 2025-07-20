@@ -15,6 +15,10 @@ export class Board implements IBoard {
     this._cells = this._createCellMatrix()
   }
 
+  get size(): number {
+    return this._size
+  }
+
   get cells(): CellMatrix {
     return this._cells
   }
