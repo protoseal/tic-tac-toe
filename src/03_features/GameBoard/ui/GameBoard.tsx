@@ -3,7 +3,7 @@ import type { IBoardRenderer } from "@05_shared/models/boardRenderer"
 import type { Coordinates } from "@05_shared/models/global"
 import { type FC, useEffect, useRef } from "react"
 
-import { BoardRenderer } from "../lib/BoardRenderer"
+import { GameBoardRenderer } from "../lib/GameBoardRenderer"
 
 interface Props {
   size: number
@@ -19,7 +19,7 @@ export const GameBoard: FC<Props> = ({ cells, size, handleMakeMove }) => {
   useEffect(() => {
     if (!canvasRef.current || isInitialized.current) return
 
-    const boardRenderer = new BoardRenderer({
+    const boardRenderer = new GameBoardRenderer({
       canvas: canvasRef.current,
       size,
       clickHandler: handleMakeMove,

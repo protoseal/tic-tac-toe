@@ -12,7 +12,7 @@ const symbolIconMap = {
   [PlayerSymbol.X]: "boardCross",
 }
 
-export class BoardRenderer implements IBoardRenderer {
+export class GameBoardRenderer implements IBoardRenderer {
   private readonly _PADDING: number = 5
   private readonly _CELL_SIZE: number = 100
 
