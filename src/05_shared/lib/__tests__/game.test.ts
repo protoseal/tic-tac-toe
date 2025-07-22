@@ -1,4 +1,8 @@
-import { type GameProps, GameStatus } from "@05_shared/models/game"
+import {
+  type GameProps,
+  GameStatus,
+  type PlayersConfig,
+} from "@05_shared/models/game"
 import { PlayerSymbol } from "@05_shared/models/global"
 import { localStorageMock } from "@05_shared/utils/localStorageMock"
 
@@ -20,8 +24,9 @@ const gameProps: GameProps = {
   cellFactory: new CellFactory(),
   playerFactory: new PlayerFactory(),
   leaderboardRepository,
-  players: { Bob: PlayerSymbol.X, Alice: PlayerSymbol.O },
 }
+
+const players: PlayersConfig = { Bob: PlayerSymbol.X, Alice: PlayerSymbol.O }
 
 describe("Game", () => {
   let game: Game
@@ -29,6 +34,7 @@ describe("Game", () => {
 
   beforeEach(() => {
     game = new Game(gameProps)
+    game.setPlayers(players)
     game.start()
     firstPlayerName = game.activePlayer.name
     leaderboardRepository.clear()

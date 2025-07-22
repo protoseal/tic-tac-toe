@@ -20,23 +20,29 @@ export class Game implements IGame {
   private _winner: IPlayer | null = null
   private _board: IBoard
   private _boardRepo: ILeaderboardRepository
+  private _playerFactory: IPlayerFactory
 
   constructor(props: GameProps) {
     this._boardRepo = props.leaderboardRepository
+    this._playerFactory = props.playerFactory
 
     this._board = props.boardFactory.create({
       size: props.boardSize,
       cellFactory: props.cellFactory,
     })
 
-    this._players = this._createPlayers(props.players, props.playerFactory)
-    this._registerPlayersInLeaderboard()
+    /* Create default players */
+    this._players = this._createPlayers({
+      player1: PlayerSymbol.X,
+      player2: PlayerSymbol.O,
+    })
 
+    this._registerPlayersInLeaderboard()
     this._activePlayerSymbol = this._randomFirstMovePlayer()
   }
 
   get activePlayer(): IPlayer {
-    return this._players.get(this._activePlayerSymbol) as IPlayer
+    return this._players?.get(this._activePlayerSymbol) as IPlayer
   }
 
   get isDraw(): boolean {
@@ -55,15 +61,16 @@ export class Game implements IGame {
     return this._board
   }
 
-  private _createPlayers(
-    players: PlayersConfig,
-    playerFactory: IPlayerFactory,
-  ): PlayerMap {
+  public setPlayers(players: PlayersConfig): void {
+    this._players = this._createPlayers(players)
+  }
+
+  private _createPlayers(players: PlayersConfig): PlayerMap {
     const array = Object.entries(players)
     const map = new Map()
 
     array.forEach(([name, symbol]) => {
-      const player = playerFactory.create({ name, symbol })
+      const player = this._playerFactory.create({ name, symbol })
       map.set(symbol, player)
     })
 

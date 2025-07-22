@@ -17,7 +17,7 @@ export const CurrentPlayer: FC<Props> = ({ currentPlayer }) => {
   const IconComponent = symbolIconMap[currentPlayer.symbol]
 
   return (
-    <div className="flex gap-2">
+    <div className="flex justify-center gap-2">
       <span>Current player:</span>
 
       <div className="flex items-center justify-center gap-2">

@@ -15,12 +15,11 @@ export interface IGame {
   start(): void
   reset(): void
   makeMove(cellCoordinates: Coordinates): void
+  setPlayers(players: PlayersConfig): void
 }
 
 export interface GameProps {
   boardSize: number
-  players: PlayersConfig
-
   leaderboardRepository: ILeaderboardRepository
   playerFactory: IPlayerFactory
   boardFactory: IBoardFactory

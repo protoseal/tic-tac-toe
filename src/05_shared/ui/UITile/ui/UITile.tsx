@@ -1,9 +1,9 @@
 import classNames from "classnames"
-import { type FC } from "react"
+import { type ComponentPropsWithoutRef, type FC } from "react"
 
 import "../styles/styles.scss"
 
-interface Props {
+interface Props extends ComponentPropsWithoutRef<"div"> {
   as?: keyof HTMLElementTagNameMap
   children?: React.ReactNode
   className?: string
