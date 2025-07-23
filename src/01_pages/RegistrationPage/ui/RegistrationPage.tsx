@@ -4,7 +4,9 @@ import type { FC } from "react"
 
 export const RegistrationPage: FC = () => {
   return (
-    <UILayout as="main" className="flex flex-1 items-center justify-center">
+    <UILayout
+      as="main"
+      className="onset flex flex-1 items-center justify-center">
       <RegistrationForm />
     </UILayout>
   )
