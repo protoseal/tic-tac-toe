@@ -22,7 +22,7 @@ export const RegistrationFormSelectSymbol: FC<Props> = ({
       className={classNames("flex flex-col gap-4 transition-[filter]", {
         ["pointer-events-none brightness-50"]: disabled,
       })}>
-      <div className="text-center text-xl">
+      <div className="text-md text-center sm:text-xl">
         <span className="highlight">{playerName}</span>{" "}
         <span>select you&apos;re symbol</span>
       </div>

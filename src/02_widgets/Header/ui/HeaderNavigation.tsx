@@ -8,15 +8,7 @@ export const HeaderNavigation: FC = () => {
 
   return (
     <nav>
-      <ul className="flex gap-2 text-sm">
-        {location.pathname !== ROUTES_PATHS.index && (
-          <li>
-            <Link to={ROUTES_PATHS.index}>
-              <UIButton>registration</UIButton>
-            </Link>
-          </li>
-        )}
-
+      <ul className="text-sm">
         {location.pathname === ROUTES_PATHS.game && (
           <li>
             <Link to={ROUTES_PATHS.leaderboard}>

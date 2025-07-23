@@ -19,8 +19,12 @@ export const GameWinnerModalContent: FC<Props> = ({
       : null
 
   return (
-    <div className="flex flex-col gap-5">
-      {title && <h1 className="text-center">{title}</h1>}
+    <div className="flex min-w-0 flex-col gap-5">
+      {title && (
+        <h1 className="overflow-hidden text-center text-ellipsis whitespace-nowrap">
+          {title}
+        </h1>
+      )}
       <UIButton onClick={handlePlayAgain}>Play again</UIButton>
     </div>
   )

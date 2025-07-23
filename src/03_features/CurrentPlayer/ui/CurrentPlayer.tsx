@@ -17,11 +17,13 @@ export const CurrentPlayer: FC<Props> = ({ currentPlayer }) => {
   const IconComponent = symbolIconMap[currentPlayer.symbol]
 
   return (
-    <div className="flex justify-center gap-2">
-      <span>Current player:</span>
+    <div className="flex w-full justify-center gap-2">
+      <span className="flex-1">Current player:</span>
 
-      <div className="flex items-center justify-center gap-2">
-        <span className="highlight">{currentPlayer.name}</span>
+      <div className="mr-2 flex min-w-0 flex-1 items-center justify-end gap-2">
+        <span className="highlight overflow-hidden text-ellipsis whitespace-nowrap">
+          {currentPlayer.name}
+        </span>
         <IconComponent className="h-4 w-4" />
       </div>
     </div>
