@@ -1,9 +1,10 @@
-import type { PlayerSymbol } from "@05_shared/models/global"
+import { PlayerSymbol } from "@05_shared/models/global"
 import { UIButton } from "@05_shared/ui/UIButton"
 import { UIInput } from "@05_shared/ui/UIInput"
 import { UITile } from "@05_shared/ui/UITile"
 import { type FC } from "react"
 import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router"
 
 import { defaultPlayerNameFieldRules, errorMessagesMap } from "../config"
 import { type FormData } from "../models"
@@ -27,6 +28,8 @@ export const RegistrationForm: FC = () => {
     },
   })
 
+  const navigate = useNavigate()
+
   const isFirstPlayerValid =
     !errors.firstPlayerName && dirtyFields.firstPlayerName
 
@@ -34,7 +37,17 @@ export const RegistrationForm: FC = () => {
     !errors.secondPlayerName && dirtyFields.secondPlayerName
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
+    const secondPlayerSymbol =
+      data.firstPlayerSymbol === PlayerSymbol.X
+        ? PlayerSymbol.O
+        : PlayerSymbol.X
+
+    navigate("/game", {
+      state: {
+        [data.firstPlayerName]: data.firstPlayerSymbol,
+        [data.secondPlayerName]: secondPlayerSymbol,
+      },
+    })
   })
 
   const handlePlayerSymbolSelect = (playerSymbol: PlayerSymbol) => {

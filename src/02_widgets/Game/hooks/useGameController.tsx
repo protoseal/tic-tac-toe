@@ -1,18 +1,17 @@
 import { useGameContext } from "@05_shared/hooks/useGameContext"
 import { useModalContext } from "@05_shared/hooks/useModalContext"
 import { GameStatus } from "@05_shared/models/game"
-import { type Coordinates, PlayerSymbol } from "@05_shared/models/global"
+import { type Coordinates } from "@05_shared/models/global"
 import type { IPlayer } from "@05_shared/models/player"
 import { useEffect, useState } from "react"
+import { useLocation } from "react-router"
 
 import { GameWinnerModalContent } from "../ui/GameWinnerModalContent"
 
 export const useGameController = () => {
   const { game } = useGameContext()
   const { openModal, closeModal } = useModalContext()
-
-  /* TODO: Sync registration props and game. Use router params */
-  game.setPlayers({ bob: PlayerSymbol.X, alice: PlayerSymbol.O })
+  const { state: registrationFormState } = useLocation()
 
   const [cells, setCells] = useState(game.board.cells)
   const [gameStatus, setGameStatus] = useState<GameStatus>(game.status)
@@ -45,7 +44,9 @@ export const useGameController = () => {
 
   /* Start game after ui load */
   useEffect(() => {
+    if (registrationFormState) game.setPlayers(registrationFormState)
     game.start()
+    syncGameStates()
   }, [game])
 
   useEffect(() => {
