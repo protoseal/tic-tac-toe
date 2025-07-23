@@ -24,7 +24,7 @@ describe("LeaderboardRepository", () => {
 
   beforeEach(() => {
     repo = new LeaderboardRepository()
-    localStorage.clear()
+    repo.clear()
     vi.clearAllMocks()
   })
 
@@ -32,7 +32,7 @@ describe("LeaderboardRepository", () => {
     repo.registerNewPlayer(playerName)
 
     const store = getDeserializedLeaderboard()
-    expect(store.get(playerName)).toEqual({ name: playerName, record: 0 })
+    expect(store.get(playerName)).toEqual(0)
   })
 
   it("should not register duplicate players", () => {
@@ -48,14 +48,14 @@ describe("LeaderboardRepository", () => {
     repo.incrementWinnerRecord(playerName)
 
     const store = getDeserializedLeaderboard()
-    expect(store.get(playerName)).toEqual({ name: playerName, record: 1 })
+    expect(store.get(playerName)).toEqual(1)
   })
 
   it("should save winner when saving unknown winner", () => {
     repo.incrementWinnerRecord(playerName)
 
     const store = getDeserializedLeaderboard()
-    expect(store.get(playerName)).toEqual({ name: playerName, record: 1 })
+    expect(store.get(playerName)).toEqual(1)
   })
 
   it("should clear leaderboard", () => {

@@ -1,3 +1,4 @@
+import { ROUTES_PATHS } from "@05_shared/config"
 import { PlayerSymbol } from "@05_shared/models/global"
 import { UIButton } from "@05_shared/ui/UIButton"
 import { UIInput } from "@05_shared/ui/UIInput"
@@ -42,7 +43,7 @@ export const RegistrationForm: FC = () => {
         ? PlayerSymbol.O
         : PlayerSymbol.X
 
-    navigate("/game", {
+    navigate(ROUTES_PATHS.game, {
       state: {
         [data.firstPlayerName]: data.firstPlayerSymbol,
         [data.secondPlayerName]: secondPlayerSymbol,

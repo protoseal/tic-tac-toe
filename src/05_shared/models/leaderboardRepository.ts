@@ -2,11 +2,10 @@ export interface ILeaderboardRepository {
   incrementWinnerRecord(playerName: string): void
   registerNewPlayer(playerName: string): void
   clear(): void
-  getPlayerByName(name: string): LeaderboardItem | undefined
+  getPlayerRecordByName(name: string): number | undefined
+  getLeaderboard(): Leaderboard
+  getLeaderboardSortedArray(): LeaderboardArray
 }
 
-export interface LeaderboardItem {
-  name: string
-  record: number
-}
-export type Leaderboard = Map<string, LeaderboardItem>
+export type Leaderboard = Map<string, number>
+export type LeaderboardArray = [string, number][]

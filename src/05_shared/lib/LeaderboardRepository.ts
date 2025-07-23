@@ -1,19 +1,27 @@
 import type {
   ILeaderboardRepository,
   Leaderboard,
-  LeaderboardItem,
+  LeaderboardArray,
 } from "@05_shared/models/leaderboardRepository"
 
 export class LeaderboardRepository implements ILeaderboardRepository {
   private _LEADERBOARD_STORE_KEY: string = "leaderboard"
+  private readonly _state: Leaderboard
+
+  constructor() {
+    this._state = this._getLeaderboardFromStore()
+  }
 
   public incrementWinnerRecord(playerName: string): void {
-    const leaderboard = this._getLeaderboardFromStore()
-    const currentPlayer = this._getPlayer(leaderboard, playerName)
-    const updatedPlayer = this._incrementPlayerRecord(currentPlayer)
+    const currentPlayerRecord = this._getPlayerRecord(playerName)
+    const updatedPlayerRecord = this._incrementPlayerRecord(currentPlayerRecord)
 
-    leaderboard.set(playerName, updatedPlayer)
-    this._saveLeaderboard(leaderboard)
+    this._state.set(playerName, updatedPlayerRecord)
+    this._saveLeaderboard()
+  }
+
+  public getLeaderboard(): Leaderboard {
+    return this._getLeaderboardFromStore()
   }
 
   private _getLeaderboardFromStore(): Leaderboard {
@@ -32,39 +40,40 @@ export class LeaderboardRepository implements ILeaderboardRepository {
     }
   }
 
-  private _getPlayer(leaderboard: Leaderboard, name: string): LeaderboardItem {
-    const currentPlayer = leaderboard.get(name)
-    return currentPlayer ?? this._createNewPlayer(name)
+  private _getPlayerRecord(name: string): number {
+    const current = this._state.get(name)
+    return current ?? 0
   }
 
-  private _createNewPlayer(name: string): LeaderboardItem {
-    return { name, record: 0 }
+  private _incrementPlayerRecord(record: number): number {
+    return record + 1
   }
 
-  private _incrementPlayerRecord(player: LeaderboardItem): LeaderboardItem {
-    return { ...player, record: player.record + 1 }
-  }
-
-  private _saveLeaderboard(leaderboard: Leaderboard): void {
+  private _saveLeaderboard(): void {
+    const leaderboard = this._state
     const serialized = JSON.stringify(Array.from(leaderboard.entries()))
     localStorage.setItem(this._LEADERBOARD_STORE_KEY, serialized)
   }
 
   public registerNewPlayer(name: string): void {
-    const leaderboard = this._getLeaderboardFromStore()
-    if (leaderboard.has(name)) return
+    if (this._state.has(name)) return
 
-    const newPlayer = this._createNewPlayer(name)
-    leaderboard.set(name, newPlayer)
-    this._saveLeaderboard(leaderboard)
+    this._state.set(name, 0)
+    this._saveLeaderboard()
   }
 
-  public getPlayerByName(name: string): LeaderboardItem | undefined {
-    const leaderboard = this._getLeaderboardFromStore()
-    return leaderboard.get(name)
+  public getPlayerRecordByName(name: string): number | undefined {
+    return this._state.get(name)
   }
 
   public clear(): void {
+    this._state.clear()
     localStorage.removeItem(this._LEADERBOARD_STORE_KEY)
+  }
+
+  public getLeaderboardSortedArray(): LeaderboardArray {
+    const leaderboardArray = Array.from(this._state.entries())
+    const leaderboardSortedArray = leaderboardArray.sort((a, b) => b[1] - a[1])
+    return leaderboardSortedArray
   }
 }

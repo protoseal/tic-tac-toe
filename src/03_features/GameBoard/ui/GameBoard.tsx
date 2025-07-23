@@ -37,5 +37,9 @@ export const GameBoard: FC<Props> = ({ cells, size, handleMakeMove }) => {
     renderer.current?.render(cells)
   }, [cells])
 
-  return <canvas ref={canvasRef} id="game-canvas" />
+  return (
+    <div className="mx-auto">
+      <canvas ref={canvasRef} id="game-canvas" />
+    </div>
+  )
 }

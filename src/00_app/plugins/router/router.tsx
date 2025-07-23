@@ -10,6 +10,7 @@ export const router = createHashRouter([
     children: [
       { index: true, element: lazyLoad("RegistrationPage") },
       { path: ROUTES_PATHS.game, element: lazyLoad("GamePage") },
+      { path: ROUTES_PATHS.leaderboard, element: lazyLoad("LeaderboardPage") },
     ],
   },
 ])

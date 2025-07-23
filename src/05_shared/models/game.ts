@@ -12,6 +12,7 @@ export interface IGame {
   readonly activePlayer: IPlayer
   readonly winner: IPlayer | null
   readonly board: IBoard
+  readonly leaderboard: ILeaderboardRepository
   start(): void
   reset(): void
   makeMove(cellCoordinates: Coordinates): void

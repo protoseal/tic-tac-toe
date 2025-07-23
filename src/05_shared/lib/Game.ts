@@ -37,7 +37,6 @@ export class Game implements IGame {
       player2: PlayerSymbol.O,
     })
 
-    this._registerPlayersInLeaderboard()
     this._activePlayerSymbol = this._randomFirstMovePlayer()
   }
 
@@ -61,8 +60,13 @@ export class Game implements IGame {
     return this._board
   }
 
+  get leaderboard(): ILeaderboardRepository {
+    return this._boardRepo
+  }
+
   public setPlayers(players: PlayersConfig): void {
     this._players = this._createPlayers(players)
+    this._registerPlayersInLeaderboard()
   }
 
   private _createPlayers(players: PlayersConfig): PlayerMap {
