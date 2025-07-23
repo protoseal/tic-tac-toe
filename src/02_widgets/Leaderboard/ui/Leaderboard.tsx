@@ -3,12 +3,13 @@ import { useGameContext } from "@05_shared/hooks/useGameContext"
 import { UIButton } from "@05_shared/ui/UIButton"
 import { UITile } from "@05_shared/ui/UITile"
 import { type FC, useState } from "react"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 
 import { LeaderboardList } from "./LeaderboardList"
 
 export const Leaderboard: FC = () => {
   const { game } = useGameContext()
+  const navigate = useNavigate()
 
   const [leaderboard, setLeaderboard] = useState(
     game.leaderboard.getLeaderboardSortedArray(),
@@ -17,6 +18,7 @@ export const Leaderboard: FC = () => {
   const handleClearLeaderboard = () => {
     game.leaderboard.clear()
     setLeaderboard(game.leaderboard.getLeaderboardSortedArray())
+    navigate(ROUTES_PATHS.index)
   }
 
   return (
