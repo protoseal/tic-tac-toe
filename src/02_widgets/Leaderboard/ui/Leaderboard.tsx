@@ -17,6 +17,7 @@ export const Leaderboard: FC = () => {
 
   const handleClearLeaderboard = () => {
     game.leaderboard.clear()
+    game.setPlayers(null)
     setLeaderboard(game.leaderboard.getLeaderboardSortedArray())
     navigate(ROUTES_PATHS.index)
   }

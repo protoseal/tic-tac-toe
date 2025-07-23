@@ -16,7 +16,7 @@ export class Game implements IGame {
   private _activePlayerSymbol: PlayerSymbol
   private _isDraw: boolean = false
 
-  private _players: PlayerMap
+  private _players: PlayerMap | null = null
   private _winner: IPlayer | null = null
   private _board: IBoard
   private _boardRepo: ILeaderboardRepository
@@ -29,12 +29,6 @@ export class Game implements IGame {
     this._board = props.boardFactory.create({
       size: props.boardSize,
       cellFactory: props.cellFactory,
-    })
-
-    /* Create default players */
-    this._players = this._createPlayers({
-      player1: PlayerSymbol.X,
-      player2: PlayerSymbol.O,
     })
 
     this._activePlayerSymbol = this._randomFirstMovePlayer()
@@ -64,8 +58,12 @@ export class Game implements IGame {
     return this._boardRepo
   }
 
-  public setPlayers(players: PlayersConfig): void {
-    this._players = this._createPlayers(players)
+  get isPlayersRegistered(): boolean {
+    return !!this._players
+  }
+
+  public setPlayers(players: PlayersConfig | null): void {
+    this._players = players ? this._createPlayers(players) : null
     this._registerPlayersInLeaderboard()
   }
 
@@ -82,7 +80,7 @@ export class Game implements IGame {
   }
 
   private _registerPlayersInLeaderboard(): void {
-    this._players.forEach((player) => {
+    this._players?.forEach((player) => {
       this._boardRepo.registerNewPlayer(player.name)
     })
   }
@@ -116,7 +114,7 @@ export class Game implements IGame {
   }
 
   private _handleWin(): void {
-    const winner = this._players.get(this._activePlayerSymbol)
+    const winner = this._players?.get(this._activePlayerSymbol)
     if (!winner) return
 
     this._winner = winner

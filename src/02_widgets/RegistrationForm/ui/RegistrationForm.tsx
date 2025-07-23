@@ -1,4 +1,5 @@
 import { ROUTES_PATHS } from "@05_shared/config"
+import { useGameContext } from "@05_shared/hooks/useGameContext"
 import { PlayerSymbol } from "@05_shared/models/global"
 import { UIButton } from "@05_shared/ui/UIButton"
 import { UIInput } from "@05_shared/ui/UIInput"
@@ -29,6 +30,7 @@ export const RegistrationForm: FC = () => {
     },
   })
 
+  const { game } = useGameContext()
   const navigate = useNavigate()
 
   const isFirstPlayerValid =
@@ -43,12 +45,12 @@ export const RegistrationForm: FC = () => {
         ? PlayerSymbol.O
         : PlayerSymbol.X
 
-    navigate(ROUTES_PATHS.game, {
-      state: {
-        [data.firstPlayerName]: data.firstPlayerSymbol,
-        [data.secondPlayerName]: secondPlayerSymbol,
-      },
+    game.setPlayers({
+      [data.firstPlayerName]: data.firstPlayerSymbol as PlayerSymbol,
+      [data.secondPlayerName]: secondPlayerSymbol,
     })
+
+    navigate(ROUTES_PATHS.game)
   })
 
   const handlePlayerSymbolSelect = (playerSymbol: PlayerSymbol) => {
