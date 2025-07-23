@@ -54,6 +54,7 @@ export const useGameController = () => {
           isDraw={isDraw}
           handlePlayAgain={handlePlayAgain}
         />,
+        { isConfetti: true },
       )
     }
   }, [isWinnerModalOpen])

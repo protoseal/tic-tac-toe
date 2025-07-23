@@ -7,11 +7,10 @@ interface Props {
 
 export const UIModal: FC<Props> = ({ children }) => {
   return (
-    <div>
+    <div className="absolute top-0 left-0 flex h-full w-full items-center justify-center">
       <div className="absolute top-0 left-0 z-10 h-full w-full bg-black/90" />
-      <UITile
-        className="onset absolute top-1/2 left-1/2 z-20 -translate-1/2"
-        onClick={(e) => e.stopPropagation()}>
+
+      <UITile className="onset z-30" onClick={(e) => e.stopPropagation()}>
         {children}
       </UITile>
     </div>
