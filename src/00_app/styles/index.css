@@ -24,20 +24,16 @@ body {
   text-decoration: underline;
 }
 
-@keyframes jump {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
+.onset {
+  animation: onset linear 0.2s;
 }
 
-.cell-symbol {
-  animation: jump 0.3s ease;
+@keyframes onset {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

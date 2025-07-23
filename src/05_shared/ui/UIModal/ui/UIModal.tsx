@@ -10,7 +10,7 @@ export const UIModal: FC<Props> = ({ children }) => {
     <div>
       <div className="absolute top-0 left-0 z-10 h-full w-full bg-black/90" />
       <UITile
-        className="absolute top-1/2 left-1/2 z-20 -translate-1/2"
+        className="onset absolute top-1/2 left-1/2 z-20 -translate-1/2"
         onClick={(e) => e.stopPropagation()}>
         {children}
       </UITile>
