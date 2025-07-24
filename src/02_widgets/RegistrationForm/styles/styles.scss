@@ -1,0 +1,26 @@
+.select-symbol {
+  &__symbol {
+    cursor: pointer;
+    transition: all 0.3s;
+
+    & svg {
+      margin: 0 auto;
+    }
+
+    &:hover {
+      background: radial-gradient(
+        circle,
+        var(--color-accent) 0%,
+        transparent 70%
+      );
+    }
+
+    &--active {
+      background: radial-gradient(
+        circle,
+        var(--color-accent) 0%,
+        transparent 70%
+      );
+    }
+  }
+}

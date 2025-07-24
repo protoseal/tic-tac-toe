@@ -1,7 +1,39 @@
 /* In version tailwindcss 4+, you need to import exactly in the .css file */
 @import "tailwindcss";
+@import "./variables.css";
 
 body {
-  background-color: #232323;
+  background-color: var(--color-background);
   color: white;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.is-montserrat {
+  font-family: Montserrat, sans-serif;
+}
+
+.highlight {
+  color: var(--color-accent);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.onset {
+  animation: onset linear 0.2s;
+}
+
+@keyframes onset {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

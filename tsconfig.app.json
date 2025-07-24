@@ -19,19 +19,18 @@
     /* Alias config */
     "baseUrl": ".",
     "paths": {
-      "00_app/*": ["src/00_app/*"],
-      "01_pages/*": ["src/01_pages/*"],
-      "02_widgets/*": ["src/02_widgets/*"],
-      "03_features/*": ["src/03_features/*"],
-      "04_entities/*": ["src/04_entities/*"],
-      "05_shared/*": ["src/05_shared/*"]
+      "@00_app/*": ["src/00_app/*"],
+      "@01_pages/*": ["src/01_pages/*"],
+      "@02_widgets/*": ["src/02_widgets/*"],
+      "@03_features/*": ["src/03_features/*"],
+      "@04_entities/*": ["src/04_entities/*"],
+      "@05_shared/*": ["src/05_shared/*"]
     },
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },

@@ -5,4 +5,6 @@ export default {
     "stylelint-config-idiomatic-order",
   ],
   plugins: ["stylelint-order"],
+
+  rules: { "at-rule-no-deprecated": [true, { ignoreAtRules: ["apply"] }] },
 }

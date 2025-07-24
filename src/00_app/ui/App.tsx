@@ -1,12 +1,9 @@
+import { router } from "@00_app/plugins/router"
 import type { FC } from "react"
+import { RouterProvider } from "react-router"
 
 import "../styles/index.css"
 
 export const App: FC = () => {
-  return (
-    <div>
-      <h1 className="text-5xl font-bold text-red-500">App is started!</h1>
-      <span>React ts vite</span>
-    </div>
-  )
+  return <RouterProvider router={router} />
 }
