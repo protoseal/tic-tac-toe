@@ -7,9 +7,9 @@ export interface IBoardRenderer {
 }
 
 export interface BoardRendererProps {
+  size: number
   canvas: HTMLCanvasElement
   clickHandler(coordinates: Coordinates): void
-  size: number
 }
 
 export interface BoardDrawIconProps {

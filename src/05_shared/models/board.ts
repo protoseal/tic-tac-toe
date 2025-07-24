@@ -8,9 +8,9 @@ export interface IBoard {
   readonly size: number
   readonly cells: CellMatrix
   readonly isAllCellsSelected: boolean
-  checkWinner(): PlayerSymbol | null
-  setPlayerSymbolInCell(coordinates: Coordinates, symbol: PlayerSymbol): void
   getCell(coordinates: Coordinates): ICell | null
+  setPlayerSymbolInCell(coordinates: Coordinates, symbol: PlayerSymbol): void
+  checkWinner(): PlayerSymbol | null
   reset(): void
 }
 

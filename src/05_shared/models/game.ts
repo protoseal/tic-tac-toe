@@ -14,10 +14,10 @@ export interface IGame {
   readonly board: IBoard
   readonly leaderboard: ILeaderboardRepository
   readonly isPlayersRegistered: boolean
+  setPlayers(players: PlayersConfig | null): void
   start(): void
   reset(): void
   makeMove(cellCoordinates: Coordinates): void
-  setPlayers(players: PlayersConfig | null): void
 }
 
 export interface GameProps {
