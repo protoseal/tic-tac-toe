@@ -6,7 +6,8 @@ export const RegistrationPage: FC = () => {
   return (
     <UILayout
       as="main"
-      className="onset flex flex-1 items-center justify-center">
+      className="onset flex flex-1 items-center justify-center"
+      data-cy="registration-page">
       <RegistrationForm />
     </UILayout>
   )
