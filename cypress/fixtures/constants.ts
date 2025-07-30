@@ -14,6 +14,7 @@ export const Selectors = {
   PLAY_AGAIN_BUTTON: '[data-cy="play-again-button"]',
   BACK_PLAY_LINK: '[data-cy="back-play-link"]',
   LEADERBOARD_LINK: '[data-cy="leaderboard-link"]',
+  WINNER_MODAL_TITLE: '[data-cy="winner-modal-title"]',
 
   // Leaderboard Page
   LEADERBOARD_PAGE: '[data-cy="leaderboard-page"]',

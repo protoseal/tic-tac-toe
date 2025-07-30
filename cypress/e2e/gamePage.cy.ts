@@ -10,12 +10,12 @@ describe("Game page", () => {
   })
 
   it("should winner modal view for 3x3 game board", () => {
-    cy.get('[data-cy="current-player-name"]').then(($playerNameElement) => {
+    cy.get(Selectors.CURRENT_PLAYER_NAME).then(($playerNameElement) => {
       const winnerName = $playerNameElement.text().trim()
 
       cy.makeMoves("winner")
 
-      cy.get('[data-cy="winner-modal-title"]')
+      cy.get(Selectors.WINNER_MODAL_TITLE)
         .should("be.visible")
         .and("include.text", winnerName)
     })
@@ -24,7 +24,7 @@ describe("Game page", () => {
   it("should draw modal view for 3x3 game board", () => {
     cy.makeMoves("draw")
 
-    cy.get('[data-cy="winner-modal-title"]')
+    cy.get(Selectors.WINNER_MODAL_TITLE)
       .should("be.visible")
       .and("include.text", "Draw")
   })
