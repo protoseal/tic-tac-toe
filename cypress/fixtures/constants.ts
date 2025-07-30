@@ -8,6 +8,7 @@ export const Selectors = {
   PLAY_BUTTON: '[data-cy="play-button"]',
 
   // Game Page
+  GAME_PAGE: '[data-cy="game-page"',
   GAME_CANVAS: '[data-cy="game-canvas"]',
   CURRENT_PLAYER_NAME: '[data-cy="current-player-name"]',
   PLAY_AGAIN_BUTTON: '[data-cy="play-again-button"]',

@@ -1,17 +1,10 @@
-import { ROUTES_PATHS } from "../../src/05_shared/config"
 import { PlayersNames, Selectors } from "../fixtures/constants"
-import { getOpponentName } from "../fixtures/game"
+import { getOpponentName } from "../fixtures/gameUtils"
 
 describe("Leaderboard page", () => {
   beforeEach(() => {
-    cy.visit(ROUTES_PATHS.index)
     cy.clearLocalStorage()
-
-    // Registration players
-    cy.get(Selectors.FIRST_PLAYER_NAME).type(PlayersNames.Player1)
-    cy.get(Selectors.SECOND_PLAYER_NAME).type(PlayersNames.Player2)
-    cy.get(Selectors.CROSS_SYMBOL_BUTTON).click()
-    cy.get(Selectors.PLAY_BUTTON).click()
+    cy.registrationPlayers()
     cy.get(Selectors.LEADERBOARD_LINK).click()
   })
 
@@ -38,7 +31,7 @@ describe("Leaderboard page", () => {
       oponnentName = getOpponentName(winnerName)
     })
 
-    cy.makeWinningMoves()
+    cy.makeMoves("winner")
 
     cy.get(Selectors.PLAY_AGAIN_BUTTON).click()
     cy.get(Selectors.LEADERBOARD_LINK).click()
