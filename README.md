@@ -1,6 +1,6 @@
-# React Template 🚀
+# Tic tac toe game 🎮
 
-A modern React starter template with Vite, TypeScript, and best practices for frontend development.
+Tic Tac Toe game based on React and OOP.
 
 ## Features ✨
 
@@ -8,6 +8,7 @@ A modern React starter template with Vite, TypeScript, and best practices for fr
 - 🏗️ **Feature-Sliced Design (FSD)** architecture
 - 🎨 **Tailwind CSS** for utility-first styling
 - 🧪 **Vitest** for unit testing
+- 🔎 **Cypress** for e2e testing
 - 💅 **SCSS** for advanced styling
 - 🛠️ **ESLint** + **Prettier** + **Stylelint** for code quality
 - 📦 **TypeScript** out of the box
@@ -21,6 +22,7 @@ A modern React starter template with Vite, TypeScript, and best practices for fr
 | Vite                  | Build tool and dev server   |
 | TypeScript            | Type checking               |
 | Vitest                | Unit testing framework      |
+| Cypress               | E2e testing framework       |
 | Tailwind CSS          | Utility-first CSS framework |
 | SCSS                  | CSS preprocessor            |
 | ESLint                | JavaScript/TS linter        |
@@ -32,13 +34,12 @@ A modern React starter template with Vite, TypeScript, and best practices for fr
 
 ```bash
 src/
-├── app/                  # Application configuration
-├── processes/            # High-level business processes
-├── pages/                # Application pages
-├── widgets/              # Independent page sections
-├── features/             # Feature implementations
-├── entities/             # Business entities
-├── shared/               # Shared resources (UI, libs, utils)
+├── 00_app/                  # Application configuration
+├── 01_pages/                # Application pages
+├── 02_widgets/              # Independent page sections
+├── 03_features/             # Feature implementations
+├── 04_entities/             # Business entities
+├── 05_shared/               # Shared resources (UI, libs, utils)
 │   ├── ui/               # UI components
 │   ├── lib/              # Libraries
 │   └── utils/            # Utility functions
@@ -49,7 +50,7 @@ public/                   # Static assets
 
 ### Prerequisites
 
-- Node.js >= 16.0.0
+- Node.js >= 18.0.0
 - npm/yarn/pnpm
 
 ### Installation
