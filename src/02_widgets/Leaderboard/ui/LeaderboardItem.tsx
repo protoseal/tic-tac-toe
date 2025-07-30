@@ -7,7 +7,7 @@ interface Props {
 
 export const LeaderboardItem: FC<Props> = ({ playerName, record }) => {
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5" data-cy="leaderboard-list-item">
       <span className="flex-1">{playerName}</span>
       <span className="fle-1">{record}</span>
     </div>

@@ -31,9 +31,9 @@ describe("Game page", () => {
     cy.visit(ROUTES_PATHS.index)
 
     cy.get('[data-cy="first-player-name"]').type("Player1")
-    cy.get('[data-cy="second-player-name"').type("Player2")
-    cy.get('[data-cy="button-cross-symbol"').click()
-    cy.get('[data-cy="play-button"').click()
+    cy.get('[data-cy="second-player-name"]').type("Player2")
+    cy.get('[data-cy="button-cross-symbol"]').click()
+    cy.get('[data-cy="play-button"]').click()
   })
 
   it("should page load", () => {
@@ -41,7 +41,7 @@ describe("Game page", () => {
   })
 
   it("should winner modal view for 3x3 game board", () => {
-    cy.get('[data-cy="game-canvas"').then(($canvas) => {
+    cy.get('[data-cy="game-canvas"]').then(($canvas) => {
       cy.get('[data-cy="current-player-name"]').then(($playerNameElement) => {
         const currentPlayerName = $playerNameElement.text().trim()
 

@@ -29,7 +29,10 @@ export const Leaderboard: FC = () => {
       </UITile>
 
       <div className="flex gap-2">
-        <Link className="flex-1" to={ROUTES_PATHS.game}>
+        <Link
+          className="flex-1"
+          to={ROUTES_PATHS.game}
+          data-cy="back-play-link">
           <UIButton className="h-full w-full">Play</UIButton>
         </Link>
 

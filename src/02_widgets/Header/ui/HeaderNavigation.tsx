@@ -11,7 +11,7 @@ export const HeaderNavigation: FC = () => {
       <ul className="text-sm">
         {location.pathname === ROUTES_PATHS.game && (
           <li>
-            <Link to={ROUTES_PATHS.leaderboard}>
+            <Link to={ROUTES_PATHS.leaderboard} data-cy="leaderboard-link">
               <UIButton>Leaderboard</UIButton>
             </Link>
           </li>

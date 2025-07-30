@@ -25,7 +25,9 @@ export const GameWinnerModalContent: FC<Props> = ({
           {title}
         </h1>
       )}
-      <UIButton onClick={handlePlayAgain}>Play again</UIButton>
+      <UIButton onClick={handlePlayAgain} data-cy="play-again-button">
+        Play again
+      </UIButton>
     </div>
   )
 }
