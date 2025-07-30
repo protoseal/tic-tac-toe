@@ -2,6 +2,7 @@ export const PlayersNames = { Player1: "Player1", Player2: "Player2" } as const
 
 export const Selectors = {
   // Registration Page
+  REGISTRATION_PAGE: '[data-cy="registration-page"]',
   FIRST_PLAYER_NAME: '[data-cy="first-player-name"]',
   SECOND_PLAYER_NAME: '[data-cy="second-player-name"]',
   CROSS_SYMBOL_BUTTON: '[data-cy="button-cross-symbol"]',
