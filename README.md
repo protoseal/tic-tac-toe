@@ -19,6 +19,7 @@ Tic Tac Toe game based on React and OOP.
 | Technology            | Purpose                     |
 | --------------------- | --------------------------- |
 | React                 | Frontend library            |
+| React router          | Routing framework           |
 | Vite                  | Build tool and dev server   |
 | TypeScript            | Type checking               |
 | Vitest                | Unit testing framework      |
@@ -29,6 +30,7 @@ Tic Tac Toe game based on React and OOP.
 | Prettier              | Code formatter              |
 | Stylelint             | SCSS/CSS linter             |
 | Feature-Sliced Design | Project architecture        |
+| OOP                   | Implement OOP patters       |
 
 ## Project Structure 📂
 
