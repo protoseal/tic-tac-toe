@@ -7,12 +7,18 @@ interface Props {
   children?: ReactNode
 }
 
-export const UILayout: FC<Props> = ({ as: Component, children, className }) => {
+export const UILayout: FC<Props> = ({
+  as: Component,
+  children,
+  className,
+  ...props
+}) => {
   return (
     <Component
       className={classNames("px-4", {
         [className as string]: className !== undefined,
-      })}>
+      })}
+      {...props}>
       {children}
     </Component>
   )

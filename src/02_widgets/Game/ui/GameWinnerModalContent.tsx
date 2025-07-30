@@ -12,20 +12,22 @@ export const GameWinnerModalContent: FC<Props> = ({
   isDraw,
   handlePlayAgain,
 }) => {
-  const title = winnerPlayerName
-    ? `Winner: ${winnerPlayerName}!`
-    : isDraw
-      ? "Draw!"
-      : null
+  const title = isDraw
+    ? "Draw!"
+    : winnerPlayerName && `Winner: ${winnerPlayerName}!`
 
   return (
     <div className="flex min-w-0 flex-col gap-5">
       {title && (
-        <h1 className="overflow-hidden text-center text-ellipsis whitespace-nowrap">
+        <h1
+          className="overflow-hidden text-center text-ellipsis whitespace-nowrap"
+          data-cy="winner-modal-title">
           {title}
         </h1>
       )}
-      <UIButton onClick={handlePlayAgain}>Play again</UIButton>
+      <UIButton onClick={handlePlayAgain} data-cy="play-again-button">
+        Play again
+      </UIButton>
     </div>
   )
 }

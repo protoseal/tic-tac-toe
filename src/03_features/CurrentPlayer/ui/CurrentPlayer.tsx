@@ -21,7 +21,9 @@ export const CurrentPlayer: FC<Props> = ({ currentPlayer }) => {
       <span className="flex-1">Current player:</span>
 
       <div className="mr-2 flex min-w-0 flex-1 items-center justify-end gap-2">
-        <span className="highlight overflow-hidden text-ellipsis whitespace-nowrap">
+        <span
+          className="highlight overflow-hidden text-ellipsis whitespace-nowrap"
+          data-cy="current-player-name">
           {currentPlayer.name}
         </span>
         <IconComponent className="h-4 w-4" />

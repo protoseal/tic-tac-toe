@@ -39,7 +39,7 @@ export const GameBoard: FC<Props> = ({ cells, size, handleMakeMove }) => {
 
   return (
     <div className="mx-auto">
-      <canvas ref={canvasRef} id="game-canvas" />
+      <canvas ref={canvasRef} id="game-canvas" data-cy="game-canvas" />
     </div>
   )
 }

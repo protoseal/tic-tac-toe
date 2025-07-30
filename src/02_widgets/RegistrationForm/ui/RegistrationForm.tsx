@@ -64,6 +64,7 @@ export const RegistrationForm: FC = () => {
           label="First player name"
           id="first-player-name"
           error={errors.firstPlayerName?.message}
+          data-cy="first-player-name"
           {...register("firstPlayerName", defaultPlayerNameFieldRules)}
         />
 
@@ -72,6 +73,7 @@ export const RegistrationForm: FC = () => {
           id="secondary-player-name"
           disabled={!isFirstPlayerValid}
           error={errors.secondPlayerName?.message}
+          data-cy="second-player-name"
           {...register("secondPlayerName", {
             ...defaultPlayerNameFieldRules,
             validate: (value) =>
@@ -90,7 +92,11 @@ export const RegistrationForm: FC = () => {
           })}
         />
 
-        <UIButton className="mt-8" type="submit" disabled={!isValid}>
+        <UIButton
+          className="mt-8"
+          type="submit"
+          disabled={!isValid}
+          data-cy="play-button">
           Play
         </UIButton>
       </form>

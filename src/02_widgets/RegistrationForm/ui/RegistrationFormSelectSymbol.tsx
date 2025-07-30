@@ -33,7 +33,8 @@ export const RegistrationFormSelectSymbol: FC<Props> = ({
             ["select-symbol__symbol--active"]: selected === PlayerSymbol.X,
           })}
           type="button"
-          onClick={() => handleSelect(PlayerSymbol.X)}>
+          onClick={() => handleSelect(PlayerSymbol.X)}
+          data-cy="button-cross-symbol">
           <CrossIcon className="max-w-22 sm:max-w-full" />
         </button>
         <button
@@ -41,7 +42,8 @@ export const RegistrationFormSelectSymbol: FC<Props> = ({
             ["select-symbol__symbol--active"]: selected === PlayerSymbol.O,
           })}
           type="button"
-          onClick={() => handleSelect(PlayerSymbol.O)}>
+          onClick={() => handleSelect(PlayerSymbol.O)}
+          data-cy="button-circle-symbol">
           <CircleIcon className="max-w-22 sm:max-w-full" />
         </button>
       </div>
