@@ -12,6 +12,7 @@ Tic Tac Toe game based on React and OOP.
 - 💅 **SCSS** for advanced styling
 - 🛠️ **ESLint** + **Prettier** + **Stylelint** for code quality
 - 📦 **TypeScript** out of the box
+- 🐺 **Husky** for Automation of commits
 - 🔥 **Hot Module Replacement (HMR)**
 
 ## Tech Stack 🛠️
@@ -29,6 +30,7 @@ Tic Tac Toe game based on React and OOP.
 | ESLint                | JavaScript/TS linter        |
 | Prettier              | Code formatter              |
 | Stylelint             | SCSS/CSS linter             |
+| Husky                 | Automation of commits       |
 | Feature-Sliced Design | Project architecture        |
 | OOP                   | Implement OOP patters       |
 
